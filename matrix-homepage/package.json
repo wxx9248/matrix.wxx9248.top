@@ -8,7 +8,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@mdi/font": "5.9.55",
+        "@mdi/font": "7.1.96",
         "roboto-fontface": "*",
         "vue": "^3.2.41",
         "vuetify": "^3.0.0-beta.0",
