@@ -19,18 +19,18 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: 18
-      - name: Setup yarn
+      - name: Setup pnpm
         run: |
-          npm install --global yarn
+          npm install --global pnpm
       - name: Fetching node modules
         run: |
           cd matrix-homepage
-          yarn
+          pnpm install
           cd ..
       - name: Build distributable
         run: |
           cd matrix-homepage
-          yarn build
+          pnpm build
           cd ..
       - name: Upload artifact
         uses: actions/upload-artifact@v3
