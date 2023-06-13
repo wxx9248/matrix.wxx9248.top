@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@mdi/font':
-    specifier: 7.1.96
-    version: 7.1.96
+    specifier: 7.2.96
+    version: 7.2.96
   roboto-fontface:
     specifier: '*'
     version: 0.10.0
@@ -112,8 +112,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@mdi/font@7.1.96:
-    resolution: {integrity: sha512-Imag6npmfkBDi2Ze2jiZVAPTDIKLxhz2Sx82xJ2zctyAU5LYJejLI5ChnDwiD9bMkQfVuzEsI98Q8toHyC+HCg==}
+  /@mdi/font@7.2.96:
+    resolution: {integrity: sha512-e//lmkmpFUMZKhmCY9zdjRe4zNXfbOIJnn6xveHbaV2kSw5aJ5dLXUxcRt1Gxfi7ZYpFLUWlkG2MGSFAiqAu7w==}
     dev: false
 
   /@types/eslint-scope@3.7.4:
