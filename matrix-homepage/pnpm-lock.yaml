@@ -24,13 +24,13 @@ dependencies:
 devDependencies:
   '@vitejs/plugin-vue':
     specifier: ^3.1.2
-    version: 3.2.0(vite@3.2.5)(vue@3.3.4)
+    version: 3.2.0(vite@3.2.7)(vue@3.3.4)
   vite:
-    specifier: ^3.1.8
-    version: 3.2.5
+    specifier: ^3.2.7
+    version: 3.2.7
   vite-plugin-vuetify:
     specifier: ^1.0.0-alpha.12
-    version: 1.0.2(vite@3.2.5)(vue@3.3.4)(vuetify@3.3.11)
+    version: 1.0.2(vite@3.2.7)(vue@3.3.4)(vuetify@3.3.11)
   vue-cli-plugin-vuetify:
     specifier: ~2.5.8
     version: 2.5.8(vue@3.3.4)(webpack@5.86.0)
@@ -146,14 +146,14 @@ packages:
     resolution: {integrity: sha512-GQBWUtGoefMEOx/vu+emHEHU5aw6JdDoEtZhoBrHFPZbA/YNRFfN996XbBASEWdvmLSLyv9FKYppYGyZjCaq/g==}
     dev: true
 
-  /@vitejs/plugin-vue@3.2.0(vite@3.2.5)(vue@3.3.4):
+  /@vitejs/plugin-vue@3.2.0(vite@3.2.7)(vue@3.3.4):
     resolution: {integrity: sha512-E0tnaL4fr+qkdCNxJ+Xd0yM31UwMkQje76fsDVBBUCoGOUPexu2VDUYHL8P4CwV+zMvWw6nlRw19OnRKmYAJpw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.5
+      vite: 3.2.7
       vue: 3.3.4
     dev: true
 
@@ -1127,7 +1127,7 @@ packages:
       punycode: 2.3.0
     dev: true
 
-  /vite-plugin-vuetify@1.0.2(vite@3.2.5)(vue@3.3.4)(vuetify@3.3.11):
+  /vite-plugin-vuetify@1.0.2(vite@3.2.7)(vue@3.3.4)(vuetify@3.3.11):
     resolution: {integrity: sha512-MubIcKD33O8wtgQXlbEXE7ccTEpHZ8nPpe77y9Wy3my2MWw/PgehP9VqTp92BLqr0R1dSL970Lynvisx3UxBFw==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -1137,14 +1137,14 @@ packages:
       '@vuetify/loader-shared': 1.7.1(vue@3.3.4)(vuetify@3.3.11)
       debug: 4.3.4
       upath: 2.0.1
-      vite: 3.2.5
+      vite: 3.2.7
       vuetify: 3.3.11(vite-plugin-vuetify@1.0.2)(vue@3.3.4)
     transitivePeerDependencies:
       - supports-color
       - vue
 
-  /vite@3.2.5:
-    resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
+  /vite@3.2.7:
+    resolution: {integrity: sha512-29pdXjk49xAP0QBr0xXqu2s5jiQIXNvE/xwd0vUizYT2Hzqe4BksNNoWllFVXJf4eLZ+UlVQmXfB4lWrc+t18g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1223,7 +1223,7 @@ packages:
       webpack-plugin-vuetify:
         optional: true
     dependencies:
-      vite-plugin-vuetify: 1.0.2(vite@3.2.5)(vue@3.3.4)(vuetify@3.3.11)
+      vite-plugin-vuetify: 1.0.2(vite@3.2.7)(vue@3.3.4)(vuetify@3.3.11)
       vue: 3.3.4
 
   /watchpack@2.4.0:
