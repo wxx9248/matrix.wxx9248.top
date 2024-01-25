@@ -21,18 +21,16 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: 18
+          node-version: 20
       - name: Setup pnpm
         run: |
           npm install --global pnpm
       - name: Fetching node modules
         run: |
-          cd matrix-homepage
           pnpm install
           cd ..
       - name: Build distributable
         run: |
-          cd matrix-homepage
           pnpm build
           cd ..
       - name: Upload artifact
@@ -40,7 +38,7 @@ jobs:
         with:
           name: 'dist'
           path: |
-            matrix-homepage/dist/
+            dist/
   release:
     needs:
       - build
