@@ -26,13 +26,13 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^3.1.2
-        version: 3.2.0(vite@3.2.10(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)
+        version: 3.2.0(vite@3.2.11(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)
       vite:
-        specifier: ^3.2.10
-        version: 3.2.10(@types/node@20.2.6)(terser@5.17.7)
+        specifier: ^3.2.11
+        version: 3.2.11(@types/node@20.2.6)(terser@5.17.7)
       vite-plugin-vuetify:
         specifier: ^1.0.0-alpha.12
-        version: 1.0.2(vite@3.2.10(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2)
+        version: 1.0.2(vite@3.2.11(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2)
       vue-cli-plugin-vuetify:
         specifier: ~2.5.8
         version: 2.5.8(vue@3.5.11)(webpack@5.86.0)
@@ -591,19 +591,12 @@ packages:
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
-  picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
-
-  postcss@8.4.35:
-    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.4.47:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
@@ -659,10 +652,6 @@ packages:
     resolution: {integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==}
     engines: {node: '>=4'}
     hasBin: true
-
-  source-map-js@1.0.2:
-    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
-    engines: {node: '>=0.10.0'}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -733,8 +722,8 @@ packages:
       vue: ^3.0.0
       vuetify: ^3.0.0-beta.4
 
-  vite@3.2.10:
-    resolution: {integrity: sha512-Dx3olBo/ODNiMVk/cA5Yft9Ws+snLOXrhLtrI3F4XLt4syz2Yg8fayZMWScPKoz12v5BUv7VEmQHnsfpY80fYw==}
+  vite@3.2.11:
+    resolution: {integrity: sha512-K/jGKL/PgbIgKCiJo5QbASQhFiV02X9Jh+Qq0AKCRCRKZtOTVi4t6wh75FDpGf2N9rYOnzH87OEFQNaFy6pdxQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -886,9 +875,9 @@ snapshots:
 
   '@types/node@20.2.6': {}
 
-  '@vitejs/plugin-vue@3.2.0(vite@3.2.10(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)':
+  '@vitejs/plugin-vue@3.2.0(vite@3.2.11(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)':
     dependencies:
-      vite: 3.2.10(@types/node@20.2.6)(terser@5.17.7)
+      vite: 3.2.11(@types/node@20.2.6)(terser@5.17.7)
       vue: 3.5.11
 
   '@vue/compiler-core@3.5.11':
@@ -1336,19 +1325,11 @@ snapshots:
 
   path-parse@1.0.7: {}
 
-  picocolors@1.0.0: {}
-
   picocolors@1.1.0: {}
 
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
-
-  postcss@8.4.35:
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
 
   postcss@8.4.47:
     dependencies:
@@ -1408,8 +1389,6 @@ snapshots:
       interpret: 1.4.0
       rechoir: 0.6.2
 
-  source-map-js@1.0.2: {}
-
   source-map-js@1.2.1: {}
 
   source-map-support@0.5.21:
@@ -1457,21 +1436,21 @@ snapshots:
     dependencies:
       punycode: 2.3.0
 
-  vite-plugin-vuetify@1.0.2(vite@3.2.10(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2):
+  vite-plugin-vuetify@1.0.2(vite@3.2.11(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2):
     dependencies:
       '@vuetify/loader-shared': 1.7.1(vue@3.5.11)(vuetify@3.7.2(vite-plugin-vuetify@1.0.2)(vue@3.5.11))
       debug: 4.3.4
       upath: 2.0.1
-      vite: 3.2.10(@types/node@20.2.6)(terser@5.17.7)
+      vite: 3.2.11(@types/node@20.2.6)(terser@5.17.7)
       vue: 3.5.11
       vuetify: 3.7.2(vite-plugin-vuetify@1.0.2)(vue@3.5.11)
     transitivePeerDependencies:
       - supports-color
 
-  vite@3.2.10(@types/node@20.2.6)(terser@5.17.7):
+  vite@3.2.11(@types/node@20.2.6)(terser@5.17.7):
     dependencies:
       esbuild: 0.15.18
-      postcss: 8.4.35
+      postcss: 8.4.47
       resolve: 1.22.1
       rollup: 2.79.1
     optionalDependencies:
@@ -1499,7 +1478,7 @@ snapshots:
     dependencies:
       vue: 3.5.11
     optionalDependencies:
-      vite-plugin-vuetify: 1.0.2(vite@3.2.10(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2)
+      vite-plugin-vuetify: 1.0.2(vite@3.2.11(@types/node@20.2.6)(terser@5.17.7))(vue@3.5.11)(vuetify@3.7.2)
 
   watchpack@2.4.0:
     dependencies:
