@@ -15,7 +15,7 @@
         "webfontloader": "^1.0.0"
     },
     "devDependencies": {
-        "@vitejs/plugin-vue": "^6.0.0",
+        "@vitejs/plugin-vue": "^6.0.1",
         "vite": "^4.5.14",
         "vite-plugin-vuetify": "^1.0.0-alpha.12",
         "vue-cli-plugin-vuetify": "~2.5.8"
