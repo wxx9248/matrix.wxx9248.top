@@ -16,9 +16,6 @@
   "registrationOpen": "Registration entry is open",
   "registrationInvitation": "Registration entry is open, but requires invitation code",
   "registrationClosed": "Server is not open for registration",
-  "recommendUsing": "Recommend using",
-  "fullFeatured": "Supports all platforms, full-featured",
-  "poweredBy": "This server is powered by",
   "copiedSuccess": "Copied to clipboard :)",
   "copyError": "Unable to copy to clipboard :(",
   "languages": {

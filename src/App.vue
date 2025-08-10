@@ -33,7 +33,6 @@
         </VContainer>
       </VContainer>
     </VMain>
-    <RecommendedClientFooter />
   </VApp>
   <AppAlert :alert-state="alertState" @update:show="hideAlert" />
 </template>
@@ -45,7 +44,6 @@ import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import ServerDetailsCard from "@/components/ServerDetailsCard.vue";
 import ServerStatusCard from "@/components/ServerStatusCard.vue";
 import RegistrationStatusCard from "@/components/RegistrationStatusCard.vue";
-import RecommendedClientFooter from "@/components/RecommendedClientFooter.vue";
 import AppAlert from "@/components/AppAlert.vue";
 import { useServerState } from "@/composables/useServerState";
 import { useAlert } from "@/composables/useAlert";

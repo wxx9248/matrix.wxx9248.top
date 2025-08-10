@@ -16,9 +16,6 @@
   "registrationOpen": "注册入口已开放",
   "registrationInvitation": "注册入口已开放，但需要邀请码",
   "registrationClosed": "服务器暂不开放注册",
-  "recommendUsing": "推荐使用",
-  "fullFeatured": "支持全平台运行，功能完善",
-  "poweredBy": "本服务器运行于",
   "copiedSuccess": "已复制到剪贴板 :)",
   "copyError": "无法复制到剪贴板 :(",
   "languages": {

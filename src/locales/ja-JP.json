@@ -16,9 +16,6 @@
   "registrationOpen": "登録エントリーは開放されています",
   "registrationInvitation": "登録エントリーは開放されていますが、招待コードが必要です",
   "registrationClosed": "サーバーは登録を受け付けていません",
-  "recommendUsing": "推奨クライアント",
-  "fullFeatured": "全プラットフォーム対応、機能充実",
-  "poweredBy": "このサーバーは",
   "copiedSuccess": "クリップボードにコピーしました :)",
   "copyError": "クリップボードにコピーできませんでした :(",
   "languages": {
