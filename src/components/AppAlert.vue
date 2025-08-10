@@ -16,14 +16,14 @@
 </template>
 
 <script setup lang="ts">
-import type { AlertState } from '@/types';
+import type { AlertState } from "@/types";
 
 interface Props {
   alertState: AlertState;
 }
 
 interface Emits {
-  (e: 'update:show', value: boolean): void;
+  (e: "update:show", value: boolean): void;
 }
 
 defineProps<Props>();

@@ -11,8 +11,8 @@ interface Props {
 }
 
 interface Emits {
-  (e: 'success'): void;
-  (e: 'error', error: Error): void;
+  (e: "success"): void;
+  (e: "error", error: Error): void;
 }
 
 const props = defineProps<Props>();
@@ -22,10 +22,10 @@ const copyToClipboard = async (text: string): Promise<void> => {
   try {
     if (!props.disableCopy) {
       await navigator.clipboard.writeText(text);
-      emit('success');
+      emit("success");
     }
   } catch (error) {
-    emit('error', error as Error);
+    emit("error", error as Error);
   }
 };
 </script>

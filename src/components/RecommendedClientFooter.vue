@@ -2,20 +2,20 @@
   <VFooter class="container footer-container">
     <div class="column">
       <p>
-        <span>{{ $t('recommendUsing') }}</span>
+        <span>{{ $t("recommendUsing") }}</span>
         <VImg
           :src="elementLogoURL"
           class="logo logo-element"
           @click="openURLInNewTab('https://element.io')"
         />
       </p>
-      <p>{{ $t('fullFeatured') }}</p>
+      <p>{{ $t("fullFeatured") }}</p>
     </div>
     <VDivider vertical />
     <div class="column">
       <VIcon class="logo logo-github" size="3rem">mdi-github</VIcon>
       <span
-        >{{ $t('poweredBy') }}
+        >{{ $t("poweredBy") }}
         <a href="https://github.com/matrix-org/synapse">Synapse</a></span
       >
     </div>

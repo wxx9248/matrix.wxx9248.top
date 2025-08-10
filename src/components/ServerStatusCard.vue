@@ -5,7 +5,7 @@
     elevation="24"
     @click="$emit('refresh')"
   >
-    <VCardTitle>{{ $t('runningStatus') }}</VCardTitle>
+    <VCardTitle>{{ $t("runningStatus") }}</VCardTitle>
     <VContainer class="container card-icon-container">
       <VIcon
         v-if="serverState.state === undefined"
@@ -25,31 +25,23 @@
         icon="mdi-minus-circle"
         size="150"
       ></VIcon>
-      <VIcon
-        v-else
-        color="red"
-        icon="mdi-close-circle"
-        size="150"
-      ></VIcon>
+      <VIcon v-else color="red" icon="mdi-close-circle" size="150"></VIcon>
     </VContainer>
     <VContainer class="container card-item-container">
       <VCardItem class="card-item">
-        <span v-if="serverState.state === undefined"
-          >{{ $t('gettingInfo') }}</span
-        >
-        <span v-else-if="serverState.state === 'operational'"
-          >{{ $t('serverNormal') }}</span
-        >
-        <span v-else-if="serverState.state === 'offline'"
-          >{{ $t('serverOffline') }}</span
-        >
-        <span v-else>{{ $t('unableToGetInfo') }}</span>
+        <span v-if="serverState.state === undefined">{{
+          $t("gettingInfo")
+        }}</span>
+        <span v-else-if="serverState.state === 'operational'">{{
+          $t("serverNormal")
+        }}</span>
+        <span v-else-if="serverState.state === 'offline'">{{
+          $t("serverOffline")
+        }}</span>
+        <span v-else>{{ $t("unableToGetInfo") }}</span>
       </VCardItem>
-      <VCardItem
-        v-if="serverState.state === 'operational'"
-        class="card-item"
-      >
-        <span>{{ $t('latestClientVersion') }}</span>
+      <VCardItem v-if="serverState.state === 'operational'" class="card-item">
+        <span>{{ $t("latestClientVersion") }}</span>
         <CopiableCode
           :disable-copy="true"
           :text="serverState.latestClientVersionSupported"
@@ -62,17 +54,17 @@
 </template>
 
 <script setup lang="ts">
-import CopiableCode from '@/components/CopiableCode.vue';
-import type { ServerState } from '@/types';
+import CopiableCode from "@/components/CopiableCode.vue";
+import type { ServerState } from "@/types";
 
 interface Props {
   serverState: ServerState;
 }
 
 interface Emits {
-  (e: 'refresh'): void;
-  (e: 'copySuccess'): void;
-  (e: 'copyError', error: Error): void;
+  (e: "refresh"): void;
+  (e: "copySuccess"): void;
+  (e: "copyError", error: Error): void;
 }
 
 defineProps<Props>();

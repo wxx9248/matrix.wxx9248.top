@@ -1,6 +1,6 @@
-import { reactive } from 'vue';
-import { useI18n } from 'vue-i18n';
-import type { AlertState } from '@/types';
+import { reactive } from "vue";
+import { useI18n } from "vue-i18n";
+import type { AlertState } from "@/types";
 
 export function useAlert() {
   const { t } = useI18n();
@@ -11,7 +11,11 @@ export function useAlert() {
     show: false
   });
 
-  const showAlert = (message: string, type: AlertState['type'], timeout?: number): void => {
+  const showAlert = (
+    message: string,
+    type: AlertState["type"],
+    timeout?: number
+  ): void => {
     alertState.text = message;
     alertState.type = type;
     alertState.show = true;

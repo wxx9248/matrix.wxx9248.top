@@ -1,14 +1,9 @@
 <template>
   <div class="language-switcher">
-    <VBtn
-      icon
-      variant="text"
-      @click="toggleMenu"
-      ref="menuActivator"
-    >
+    <VBtn icon variant="text" @click="toggleMenu" ref="menuActivator">
       <VIcon>mdi-translate</VIcon>
     </VBtn>
-    
+
     <VMenu
       :model-value="showMenu"
       :activator="menuActivator"
@@ -31,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { ref, computed, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 
 // i18n setup
 const { locale } = useI18n();
@@ -62,13 +57,13 @@ const changeLanguage = (newLocale: string): void => {
   // Update document language attribute
   document.documentElement.lang = newLocale;
   // Store preference in localStorage
-  localStorage.setItem('preferred-language', newLocale);
+  localStorage.setItem("preferred-language", newLocale);
 };
 
 // Lifecycle
 onMounted(() => {
   // Load saved language preference
-  const savedLocale = localStorage.getItem('preferred-language');
+  const savedLocale = localStorage.getItem("preferred-language");
   if (savedLocale && savedLocale in supportedLocales) {
     changeLanguage(savedLocale);
   }

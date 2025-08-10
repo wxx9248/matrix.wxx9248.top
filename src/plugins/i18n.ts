@@ -10,24 +10,30 @@ import jaJP from "@/locales/ja-JP.json";
 function getDefaultLocale(): string {
   const supportedLocales: string[] = ["en-US", "zh-CN", "zh-TW", "ja-JP"];
   const userLocale = navigator.language;
-  
+
   // Try exact match first
   if (supportedLocales.includes(userLocale)) {
     return userLocale;
   }
-  
+
   // Try language code match (e.g., 'zh' matches 'zh-CN')
-  const userLang = userLocale.split('-')[0];
-  const matchingLocale = supportedLocales.find(locale => locale.startsWith(userLang));
-  
+  const userLang = userLocale.split("-")[0];
+  const matchingLocale = supportedLocales.find((locale) =>
+    locale.startsWith(userLang)
+  );
+
   if (matchingLocale) {
     // For Chinese, prefer simplified (zh-CN) over traditional (zh-TW)
-    if (userLang === 'zh') {
-      return userLocale === 'zh-TW' || userLocale === 'zh-HK' || userLocale === 'zh-Hant' ? 'zh-TW' : 'zh-CN';
+    if (userLang === "zh") {
+      return userLocale === "zh-TW" ||
+        userLocale === "zh-HK" ||
+        userLocale === "zh-Hant"
+        ? "zh-TW"
+        : "zh-CN";
     }
     return matchingLocale;
   }
-  
+
   // Fallback to English
   return "en-US";
 }

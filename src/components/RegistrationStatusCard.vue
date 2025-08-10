@@ -5,7 +5,7 @@
     elevation="24"
     @click="$emit('refresh')"
   >
-    <VCardTitle>{{ $t('registrationStatus') }}</VCardTitle>
+    <VCardTitle>{{ $t("registrationStatus") }}</VCardTitle>
     <VContainer class="container card-icon-container">
       <VIcon
         v-if="serverState.registration === undefined"
@@ -31,42 +31,37 @@
         icon="mdi-minus-circle"
         size="150"
       ></VIcon>
-      <VIcon
-        v-else
-        color="red"
-        icon="mdi-close-circle"
-        size="150"
-      ></VIcon>
+      <VIcon v-else color="red" icon="mdi-close-circle" size="150"></VIcon>
     </VContainer>
     <VContainer class="container card-item-container">
       <VCardItem class="card-item">
-        <span v-if="serverState.registration === undefined"
-          >{{ $t('gettingInfo') }}</span
-        >
-        <span v-else-if="serverState.registration === 'open'"
-          >{{ $t('registrationOpen') }}</span
-        >
-        <span v-else-if="serverState.registration === 'invitation'"
-          >{{ $t('registrationInvitation') }}</span
-        >
-        <span v-else-if="serverState.registration === 'closed'"
-          >{{ $t('registrationClosed') }}</span
-        >
-        <span v-else>{{ $t('unableToGetInfo') }}</span>
+        <span v-if="serverState.registration === undefined">{{
+          $t("gettingInfo")
+        }}</span>
+        <span v-else-if="serverState.registration === 'open'">{{
+          $t("registrationOpen")
+        }}</span>
+        <span v-else-if="serverState.registration === 'invitation'">{{
+          $t("registrationInvitation")
+        }}</span>
+        <span v-else-if="serverState.registration === 'closed'">{{
+          $t("registrationClosed")
+        }}</span>
+        <span v-else>{{ $t("unableToGetInfo") }}</span>
       </VCardItem>
     </VContainer>
   </VCard>
 </template>
 
 <script setup lang="ts">
-import type { ServerState } from '@/types';
+import type { ServerState } from "@/types";
 
 interface Props {
   serverState: ServerState;
 }
 
 interface Emits {
-  (e: 'refresh'): void;
+  (e: "refresh"): void;
 }
 
 defineProps<Props>();

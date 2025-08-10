@@ -3,15 +3,15 @@
     <LanguageSwitcher />
     <VMain>
       <VContainer class="container main-container">
-        <h1>{{ $t('welcome') }}</h1>
+        <h1>{{ $t("welcome") }}</h1>
         <p>
-          <span>{{ $t('needClient') }}</span>
+          <span>{{ $t("needClient") }}</span>
           <VImg
             :src="matrixLogoURL"
             class="logo logo-matrix"
             @click="openURLInNewTab('https://matrix.org')"
           />
-          <span>{{ $t('protocolToConnect') }}</span>
+          <span>{{ $t("protocolToConnect") }}</span>
         </p>
         <VDivider></VDivider>
         <VContainer class="container card-container">
@@ -35,14 +35,11 @@
     </VMain>
     <RecommendedClientFooter />
   </VApp>
-  <AppAlert 
-    :alert-state="alertState" 
-    @update:show="hideAlert"
-  />
+  <AppAlert :alert-state="alertState" @update:show="hideAlert" />
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 import matrixLogoURL from "@/assets/images/matrix-logo.svg";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 import ServerDetailsCard from "@/components/ServerDetailsCard.vue";
@@ -62,11 +59,11 @@ const serverConfig: ServerConfig = {
 
 // Composables
 const { serverState, getServerState } = useServerState();
-const { 
-  alertState, 
-  copyToClipboardSuccessHandler, 
+const {
+  alertState,
+  copyToClipboardSuccessHandler,
   copyToClipboardErrorHandler,
-  hideAlert 
+  hideAlert
 } = useAlert();
 
 // Methods

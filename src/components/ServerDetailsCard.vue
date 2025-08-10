@@ -1,12 +1,12 @@
 <template>
   <VCard class="card" elevation="24">
-    <VCardTitle>{{ $t('details') }}</VCardTitle>
+    <VCardTitle>{{ $t("details") }}</VCardTitle>
     <VContainer class="container card-icon-container">
       <VIcon color="blue" icon="mdi-information" size="150"></VIcon>
     </VContainer>
     <VContainer class="container card-item-container">
       <VCardItem class="card-item">
-        <span>{{ $t('matrixDomain') }}</span>
+        <span>{{ $t("matrixDomain") }}</span>
         <CopiableCode
           :text="serverConfig.serverName"
           @error="$emit('copyError', $event)"
@@ -14,7 +14,7 @@
         />
       </VCardItem>
       <VCardItem class="card-item">
-        <span>{{ $t('entryAddress') }}</span>
+        <span>{{ $t("entryAddress") }}</span>
         <CopiableCode
           :text="serverConfig.serverEntryPoint"
           @error="$emit('copyError', $event)"
@@ -26,16 +26,16 @@
 </template>
 
 <script setup lang="ts">
-import CopiableCode from '@/components/CopiableCode.vue';
-import type { ServerConfig } from '@/types';
+import CopiableCode from "@/components/CopiableCode.vue";
+import type { ServerConfig } from "@/types";
 
 interface Props {
   serverConfig: ServerConfig;
 }
 
 interface Emits {
-  (e: 'copySuccess'): void;
-  (e: 'copyError', error: Error): void;
+  (e: "copySuccess"): void;
+  (e: "copyError", error: Error): void;
 }
 
 defineProps<Props>();
