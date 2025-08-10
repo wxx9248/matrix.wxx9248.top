@@ -11,7 +11,7 @@
     
     <VMenu
       :model-value="showMenu"
-      :activator="$refs.menuActivator"
+      :activator="menuActivator"
       location="bottom end"
       offset="8"
       @update:model-value="showMenu = $event"
@@ -30,56 +30,49 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-export default {
-  name: "LanguageSwitcher",
-  setup() {
-    const { locale, t } = useI18n();
-    
-    return {
-      locale,
-      t
-    };
-  },
-  data() {
-    return {
-      showMenu: false,
-      supportedLocales: {
-        "en-US": "English",
-        "zh-CN": "简体中文",
-        "zh-TW": "繁體中文",
-        "ja-JP": "日本語"
-      }
-    };
-  },
-  computed: {
-    currentLocale() {
-      return this.locale;
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu;
-    },
-    changeLanguage(locale) {
-      this.locale = locale;
-      this.showMenu = false;
-      // Update document language attribute
-      document.documentElement.lang = locale;
-      // Store preference in localStorage
-      localStorage.setItem('preferred-language', locale);
-    }
-  },
-  mounted() {
-    // Load saved language preference
-    const savedLocale = localStorage.getItem('preferred-language');
-    if (savedLocale && this.supportedLocales[savedLocale]) {
-      this.changeLanguage(savedLocale);
-    }
-  }
+// i18n setup
+const { locale } = useI18n();
+
+// State
+const showMenu = ref<boolean>(false);
+const menuActivator = ref();
+
+const supportedLocales = {
+  "en-US": "English",
+  "zh-CN": "简体中文",
+  "zh-TW": "繁體中文",
+  "ja-JP": "日本語"
+} as const;
+
+// Computed
+const currentLocale = computed(() => locale.value);
+
+// Methods
+const toggleMenu = (): void => {
+  showMenu.value = !showMenu.value;
 };
+
+const changeLanguage = (newLocale: string): void => {
+  locale.value = newLocale;
+  showMenu.value = false;
+  // Update document language attribute
+  document.documentElement.lang = newLocale;
+  // Store preference in localStorage
+  localStorage.setItem('preferred-language', newLocale);
+};
+
+// Lifecycle
+onMounted(() => {
+  // Load saved language preference
+  const savedLocale = localStorage.getItem('preferred-language');
+  if (savedLocale && savedLocale in supportedLocales) {
+    changeLanguage(savedLocale);
+  }
+});
 </script>
 
 <style scoped>

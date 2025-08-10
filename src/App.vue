@@ -83,7 +83,7 @@
                 <span v-else-if="serverState.state === 'offline'"
                   >{{ $t('serverOffline') }}</span
                 >
-                <span v-else>未能获取到信息</span>
+                <span v-else>{{ $t('unableToGetInfo') }}</span>
               </VCardItem>
               <VCardItem
                 v-if="serverState.state === 'operational'"
@@ -196,129 +196,147 @@
   </VContainer>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, reactive, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import elementLogoURL from "@/assets/images/element-logo.svg";
 import matrixLogoURL from "@/assets/images/matrix-logo.svg";
 import CopiableCode from "@/components/CopiableCode.vue";
 import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
-export default {
-  name: "App",
-  components: { CopiableCode, LanguageSwitcher },
-  setup() {
-    const serverName = "wxx9248.top";
-    const serverEntryPoint = "https://matrix.wxx9248.top";
+// Server configuration
+const serverName = "wxx9248.top";
+const serverEntryPoint = "https://matrix.wxx9248.top";
 
-    return { serverName, serverEntryPoint, matrixLogoURL, elementLogoURL };
-  },
-  methods: {
-    openURLInNewTab(url) {
-      window.open(url);
-    },
-    copyToClipboardSuccessHandler() {
-      this.showAlert(this.$t("copiedSuccess"), "success", 2000);
-    },
-    copyToClipboardErrorHandler(error) {
-      this.showAlert(this.$t("copyError"), "error", 2000);
-      console.error(error);
-    },
-    showAlert(message, type, timeout) {
-      this.alertState.text = message;
-      this.alertState.type = type;
-      this.alertState.show = true;
+// i18n setup
+const { t } = useI18n();
 
-      if (timeout) {
-        setTimeout(() => {
-          this.alertState.show = false;
-        }, timeout);
-      }
-    },
-    async getServerState() {
-      this.state = undefined;
-      this.latestClientVersionSupported = "";
-      this.registration = undefined;
+// Alert state
+interface AlertState {
+  type: 'success' | 'error' | 'warning' | 'info' | undefined;
+  text: string;
+  show: boolean;
+}
 
-      try {
-        // Get if operational
-        const response = await fetch("/_matrix/client/versions");
+const alertState = reactive<AlertState>({
+  type: undefined,
+  text: "",
+  show: false
+});
 
-        switch (response.status) {
-          case 200:
-            this.serverState.state = "operational";
-            const json = await response.json();
-            // Get latest supported client version
-            this.serverState.latestClientVersionSupported =
-              json["versions"][json["versions"].length - 1];
-            break;
-          case 502:
-            this.serverState.state = "offline";
-            break;
-          default:
-            this.serverState.state = "error";
-            break;
-        }
-      } catch (error) {
-        this.serverState.state = "error";
-        console.error(error);
-      }
+// Server state
+type ServerStatus = 'operational' | 'offline' | 'error' | undefined;
+type RegistrationStatus = 'open' | 'invitation' | 'closed' | 'error' | undefined;
 
-      try {
-        // Get if registrable
-        const response = await fetch("/_matrix/client/r0/register", {
-          method: "POST",
-          body: JSON.stringify({ initial_device_display_name: "dummy" })
-        });
+interface ServerState {
+  state: ServerStatus;
+  latestClientVersionSupported: string;
+  registration: RegistrationStatus;
+}
 
-        switch (response.status) {
-          case 200:
-            this.serverState.registration = "open";
-            break;
-          case 401:
-            const json = await response.json();
-            if (
-              json["flows"].some((flow) =>
-                flow["stages"].includes("m.login.registration_token")
-              )
-            ) {
-              this.serverState.registration = "invitation";
-            } else {
-              this.serverState.registration = "open";
-            }
-            break;
-          case 403:
-            this.serverState.registration = "closed";
-            break;
-          case 429:
-            break;
-          case 400:
-          default:
-            this.serverState.registration = "error";
-        }
-      } catch (error) {
-        this.serverState.registration = "error";
-        console.error(error);
-      }
-    }
-  },
-  data() {
-    return {
-      alertState: {
-        type: undefined,
-        text: "",
-        show: false
-      },
-      serverState: {
-        state: undefined,
-        latestClientVersionSupported: "",
-        registration: undefined
-      }
-    };
-  },
-  computed: {},
-  mounted() {
-    this.getServerState();
+const serverState = reactive<ServerState>({
+  state: undefined,
+  latestClientVersionSupported: "",
+  registration: undefined
+});
+
+// Methods
+const openURLInNewTab = (url: string): void => {
+  window.open(url);
+};
+
+const copyToClipboardSuccessHandler = (): void => {
+  showAlert(t("copiedSuccess"), "success", 2000);
+};
+
+const copyToClipboardErrorHandler = (error: Error): void => {
+  showAlert(t("copyError"), "error", 2000);
+  console.error(error);
+};
+
+const showAlert = (message: string, type: AlertState['type'], timeout?: number): void => {
+  alertState.text = message;
+  alertState.type = type;
+  alertState.show = true;
+
+  if (timeout) {
+    setTimeout(() => {
+      alertState.show = false;
+    }, timeout);
   }
 };
+
+const getServerState = async (): Promise<void> => {
+  serverState.state = undefined;
+  serverState.latestClientVersionSupported = "";
+  serverState.registration = undefined;
+
+  try {
+    // Get if operational
+    const response = await fetch("/_matrix/client/versions");
+
+    switch (response.status) {
+      case 200:
+        serverState.state = "operational";
+        const json = await response.json();
+        // Get latest supported client version
+        serverState.latestClientVersionSupported =
+          json["versions"][json["versions"].length - 1];
+        break;
+      case 502:
+        serverState.state = "offline";
+        break;
+      default:
+        serverState.state = "error";
+        break;
+    }
+  } catch (error) {
+    serverState.state = "error";
+    console.error(error);
+  }
+
+  try {
+    // Get if registrable
+    const response = await fetch("/_matrix/client/r0/register", {
+      method: "POST",
+      body: JSON.stringify({ initial_device_display_name: "dummy" })
+    });
+
+    switch (response.status) {
+      case 200:
+        serverState.registration = "open";
+        break;
+      case 401:
+        const json = await response.json();
+        if (
+          json["flows"].some((flow: any) =>
+            flow["stages"].includes("m.login.registration_token")
+          )
+        ) {
+          serverState.registration = "invitation";
+        } else {
+          serverState.registration = "open";
+        }
+        break;
+      case 403:
+        serverState.registration = "closed";
+        break;
+      case 429:
+        break;
+      case 400:
+      default:
+        serverState.registration = "error";
+    }
+  } catch (error) {
+    serverState.registration = "error";
+    console.error(error);
+  }
+};
+
+// Lifecycle
+onMounted(() => {
+  getServerState();
+});
 </script>
 
 <style scoped>

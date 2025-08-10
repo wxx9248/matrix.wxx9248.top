@@ -7,8 +7,8 @@ import zhTW from "@/locales/zh-TW.json";
 import jaJP from "@/locales/ja-JP.json";
 
 // Detect user's preferred language
-function getDefaultLocale() {
-  const supportedLocales = ["en-US", "zh-CN", "zh-TW", "ja-JP"];
+function getDefaultLocale(): string {
+  const supportedLocales: string[] = ["en-US", "zh-CN", "zh-TW", "ja-JP"];
   const userLocale = navigator.language;
   
   // Try exact match first
