@@ -1,5 +1,5 @@
 import { reactive } from "vue";
-import type { ServerState, ServerStatus, RegistrationStatus } from "@/types";
+import type { ServerState } from "@/types";
 
 export function useServerState() {
   const serverState = reactive<ServerState>({

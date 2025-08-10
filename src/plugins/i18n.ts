@@ -49,7 +49,6 @@ const i18n = createI18n({
     "zh-TW": zhTW,
     "ja-JP": jaJP
   },
-  legacy: false, // Use Composition API mode
   globalInjection: true // Enable global $t function
 });
 
