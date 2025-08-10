@@ -2,15 +2,11 @@
   <div class="language-switcher">
     <VMenu location="bottom end" offset="8">
       <template v-slot:activator="{ props }">
-        <VBtn
-          icon
-          variant="text"
-          v-bind="props"
-        >
+        <VBtn icon variant="text" v-bind="props">
           <VIcon>mdi-translate</VIcon>
         </VBtn>
       </template>
-      
+
       <VList density="compact">
         <VListItem
           v-for="(label, locale) in supportedLocales"

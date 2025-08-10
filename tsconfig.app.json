@@ -15,11 +15,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "useDefineForClassFields": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
 
     "strict": true,
     "esModuleInterop": true,
@@ -42,6 +38,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "incremental": true,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true
   }
 }
