@@ -1,8 +1,8 @@
 {
     "name": "matrix",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "scripts": {
-        "format": "prettier --write src",
+        "format": "prettier --write .",
         "serve": "vite preview",
         "build": "vite build",
         "dev": "vite",
@@ -11,6 +11,7 @@
     "dependencies": {
         "roboto-fontface": "^0.10.0",
         "vue": "^3.5.18",
+        "vue-i18n": "^11.1.11",
         "vuetify": "^3.9.4",
         "webfontloader": "^1.6.28"
     },
@@ -18,7 +19,7 @@
         "@mdi/font": "7.4.47",
         "@vitejs/plugin-vue": "^6.0.1",
         "prettier": "^3.6.2",
-        "vite": "^7.0.6",
+        "vite": "^7.1.1",
         "vite-plugin-vuetify": "^2.1.2",
         "vue-cli-plugin-vuetify": "~2.5.8"
     }

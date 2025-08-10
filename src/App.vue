@@ -1,27 +1,28 @@
 <template>
   <VApp>
+    <LanguageSwitcher />
     <VMain>
       <VContainer class="container main-container">
-        <h1>欢迎来到wxx9248的聊天服务器！</h1>
+        <h1>{{ $t('welcome') }}</h1>
         <p>
-          <span>你需要一个支持</span>
+          <span>{{ $t('needClient') }}</span>
           <VImg
             :src="matrixLogoURL"
             class="logo logo-matrix"
             @click="openURLInNewTab('https://matrix.org')"
           />
-          <span>协议的客户端来连接到聊天室。</span>
+          <span>{{ $t('protocolToConnect') }}</span>
         </p>
         <VDivider></VDivider>
         <VContainer class="container card-container">
           <VCard class="card" elevation="24">
-            <VCardTitle>详细信息</VCardTitle>
+            <VCardTitle>{{ $t('details') }}</VCardTitle>
             <VContainer class="container card-icon-container">
               <VIcon color="blue" icon="mdi-information" size="150"></VIcon>
             </VContainer>
             <VContainer class="container card-item-container">
               <VCardItem class="card-item">
-                <span>matrix 域：</span>
+                <span>{{ $t('matrixDomain') }}</span>
                 <CopiableCode
                   :text="serverName"
                   @error="copyToClipboardErrorHandler"
@@ -29,7 +30,7 @@
                 />
               </VCardItem>
               <VCardItem class="card-item">
-                <span>入口地址：</span>
+                <span>{{ $t('entryAddress') }}</span>
                 <CopiableCode
                   :text="serverEntryPoint"
                   @error="copyToClipboardErrorHandler"
@@ -44,7 +45,7 @@
             elevation="24"
             @click="getServerState"
           >
-            <VCardTitle>运行状态</VCardTitle>
+            <VCardTitle>{{ $t('runningStatus') }}</VCardTitle>
             <VContainer class="container card-icon-container">
               <VIcon
                 v-if="serverState.state === undefined"
@@ -74,13 +75,13 @@
             <VContainer class="container card-item-container">
               <VCardItem class="card-item">
                 <span v-if="serverState.state === undefined"
-                  >正在获取信息……</span
+                  >{{ $t('gettingInfo') }}</span
                 >
                 <span v-else-if="serverState.state === 'operational'"
-                  >服务器运行正常 :)</span
+                  >{{ $t('serverNormal') }}</span
                 >
                 <span v-else-if="serverState.state === 'offline'"
-                  >服务器离线，正在维护 :(</span
+                  >{{ $t('serverOffline') }}</span
                 >
                 <span v-else>未能获取到信息</span>
               </VCardItem>
@@ -88,7 +89,7 @@
                 v-if="serverState.state === 'operational'"
                 class="card-item"
               >
-                <span>支持的最新 matrix 客户端版本：</span>
+                <span>{{ $t('latestClientVersion') }}</span>
                 <CopiableCode
                   :disable-copy="true"
                   :text="serverState.latestClientVersionSupported"
@@ -104,7 +105,7 @@
             elevation="24"
             @click="getServerState"
           >
-            <VCardTitle>注册入口状态</VCardTitle>
+            <VCardTitle>{{ $t('registrationStatus') }}</VCardTitle>
             <VContainer class="container card-icon-container">
               <VIcon
                 v-if="serverState.registration === undefined"
@@ -140,18 +141,18 @@
             <VContainer class="container card-item-container">
               <VCardItem class="card-item">
                 <span v-if="serverState.registration === undefined"
-                  >正在获取信息……</span
+                  >{{ $t('gettingInfo') }}</span
                 >
                 <span v-else-if="serverState.registration === 'open'"
-                  >注册入口已开放</span
+                  >{{ $t('registrationOpen') }}</span
                 >
                 <span v-else-if="serverState.registration === 'invitation'"
-                  >注册入口已开放，但需要邀请码</span
+                  >{{ $t('registrationInvitation') }}</span
                 >
                 <span v-else-if="serverState.registration === 'closed'"
-                  >服务器暂不开放注册</span
+                  >{{ $t('registrationClosed') }}</span
                 >
-                <span v-else>未能获取到信息</span>
+                <span v-else>{{ $t('unableToGetInfo') }}</span>
               </VCardItem>
             </VContainer>
           </VCard>
@@ -161,22 +162,21 @@
     <VFooter class="container footer-container">
       <div class="column">
         <p>
-          <span>推荐使用</span>
+          <span>{{ $t('recommendUsing') }}</span>
           <VImg
             :src="elementLogoURL"
             class="logo logo-element"
             @click="openURLInNewTab('https://element.io')"
           />
         </p>
-        <p>支持全平台运行，功能完善</p>
+        <p>{{ $t('fullFeatured') }}</p>
       </div>
       <VDivider vertical />
       <div class="column">
         <VIcon class="logo logo-github" size="3rem">mdi-github</VIcon>
         <span
-          >本服务器由
-          <a href="https://github.com/matrix-org/synapse">Synapse</a>
-          强力驱动</span
+          >{{ $t('poweredBy') }}
+          <a href="https://github.com/matrix-org/synapse">Synapse</a></span
         >
       </div>
     </VFooter>
@@ -200,10 +200,11 @@
 import elementLogoURL from "@/assets/images/element-logo.svg";
 import matrixLogoURL from "@/assets/images/matrix-logo.svg";
 import CopiableCode from "@/components/CopiableCode.vue";
+import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
 
 export default {
   name: "App",
-  components: { CopiableCode },
+  components: { CopiableCode, LanguageSwitcher },
   setup() {
     const serverName = "wxx9248.top";
     const serverEntryPoint = "https://matrix.wxx9248.top";
@@ -215,10 +216,10 @@ export default {
       window.open(url);
     },
     copyToClipboardSuccessHandler() {
-      this.showAlert("已复制到剪贴板 :)", "success", 2000);
+      this.showAlert(this.$t("copiedSuccess"), "success", 2000);
     },
     copyToClipboardErrorHandler(error) {
-      this.showAlert("无法复制到剪贴板 :(", "error", 2000);
+      this.showAlert(this.$t("copyError"), "error", 2000);
       console.error(error);
     },
     showAlert(message, type, timeout) {

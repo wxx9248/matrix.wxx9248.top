@@ -1,0 +1,30 @@
+{
+  "title": "[matrix]",
+  "welcome": "wxx9248のチャットサーバーへようこそ！",
+  "needClient": "チャットルームに接続するには",
+  "protocolToConnect": "プロトコルをサポートするクライアントが必要です。",
+  "details": "詳細情報",
+  "matrixDomain": "matrix ドメイン：",
+  "entryAddress": "エントリーアドレス：",
+  "runningStatus": "稼働状況",
+  "gettingInfo": "情報を取得しています...",
+  "serverNormal": "サーバーは正常に稼働しています :)",
+  "serverOffline": "サーバーはオフライン、メンテナンス中 :(",
+  "unableToGetInfo": "情報を取得できませんでした",
+  "latestClientVersion": "サポートされている最新の matrix クライアントバージョン：",
+  "registrationStatus": "登録エントリーの状況",
+  "registrationOpen": "登録エントリーは開放されています",
+  "registrationInvitation": "登録エントリーは開放されていますが、招待コードが必要です",
+  "registrationClosed": "サーバーは登録を受け付けていません",
+  "recommendUsing": "推奨クライアント",
+  "fullFeatured": "全プラットフォーム対応、機能充実",
+  "poweredBy": "このサーバーは",
+  "copiedSuccess": "クリップボードにコピーしました :)",
+  "copyError": "クリップボードにコピーできませんでした :(",
+  "languages": {
+    "en": "English",
+    "zh-CN": "简体中文", 
+    "zh-TW": "繁體中文",
+    "ja": "日本語"
+  }
+}
