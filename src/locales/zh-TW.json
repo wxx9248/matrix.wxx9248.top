@@ -1,0 +1,27 @@
+{
+  "title": "[matrix]",
+  "welcome": "歡迎來到wxx9248的聊天伺服器！",
+  "needClient": "你需要一個支援",
+  "protocolToConnect": "協議的用戶端來連接到聊天室。",
+  "details": "詳細資訊",
+  "matrixDomain": "matrix 域：",
+  "entryAddress": "入口地址：",
+  "runningStatus": "運行狀態",
+  "gettingInfo": "正在獲取資訊……",
+  "serverNormal": "伺服器運行正常 :)",
+  "serverOffline": "伺服器離線，正在維護 :(",
+  "unableToGetInfo": "無法獲取到資訊",
+  "latestClientVersion": "支援的最新 matrix 用戶端版本：",
+  "registrationStatus": "註冊入口狀態",
+  "registrationOpen": "註冊入口已開放",
+  "registrationInvitation": "註冊入口已開放，但需要邀請碼",
+  "registrationClosed": "伺服器暫不開放註冊",
+  "copiedSuccess": "已複製到剪貼簿 :)",
+  "copyError": "無法複製到剪貼簿 :(",
+  "languages": {
+    "en": "English",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文",
+    "ja": "日本語"
+  }
+}

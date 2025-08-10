@@ -1,0 +1,27 @@
+{
+  "title": "[matrix]",
+  "welcome": "Welcome to wxx9248's chat server!",
+  "needClient": "You need a client that supports",
+  "protocolToConnect": "protocol to connect to the chat room.",
+  "details": "Details",
+  "matrixDomain": "Matrix domain:",
+  "entryAddress": "Entry address:",
+  "runningStatus": "Running Status",
+  "gettingInfo": "Getting information...",
+  "serverNormal": "Server running normally :)",
+  "serverOffline": "Server offline, under maintenance :(",
+  "unableToGetInfo": "Unable to get information",
+  "latestClientVersion": "Latest supported matrix client version:",
+  "registrationStatus": "Registration Status",
+  "registrationOpen": "Registration entry is open",
+  "registrationInvitation": "Registration entry is open, but requires invitation code",
+  "registrationClosed": "Server is not open for registration",
+  "copiedSuccess": "Copied to clipboard :)",
+  "copyError": "Unable to copy to clipboard :(",
+  "languages": {
+    "en": "English",
+    "zh-CN": "简体中文",
+    "zh-TW": "繁體中文",
+    "ja": "日本語"
+  }
+}
