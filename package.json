@@ -16,7 +16,7 @@
     "@mdi/font": "7.4.47",
     "vue": "^3.5.18",
     "vue-i18n": "^11.1.11",
-    "vuetify": "^3.9.4"
+    "vuetify": "^3.9.5"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
