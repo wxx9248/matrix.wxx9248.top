@@ -18,24 +18,18 @@ function getDefaultLocale(): string {
 
   // Try language code match (e.g., 'zh' matches 'zh-CN')
   const userLang = userLocale.split("-")[0];
+  if (!userLang) {
+    return "en-US";
+  }
+
   const matchingLocale = supportedLocales.find((locale) =>
     locale.startsWith(userLang)
   );
-
-  if (matchingLocale) {
-    // For Chinese, prefer simplified (zh-CN) over traditional (zh-TW)
-    if (userLang === "zh") {
-      return userLocale === "zh-TW" ||
-        userLocale === "zh-HK" ||
-        userLocale === "zh-Hant"
-        ? "zh-TW"
-        : "zh-CN";
-    }
-    return matchingLocale;
+  if (!matchingLocale) {
+    return "en-US";
   }
 
-  // Fallback to English
-  return "en-US";
+  return matchingLocale;
 }
 
 const defaultLocale = getDefaultLocale();
