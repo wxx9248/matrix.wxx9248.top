@@ -11,7 +11,6 @@ declare module 'vue' {
     AppAlert: typeof import('./src/components/AppAlert.vue')['default']
     CopiableCode: typeof import('./src/components/CopiableCode.vue')['default']
     LanguageSwitcher: typeof import('./src/components/LanguageSwitcher.vue')['default']
-    RecommendedClientFooter: typeof import('./src/components/RecommendedClientFooter.vue')['default']
     RegistrationStatusCard: typeof import('./src/components/RegistrationStatusCard.vue')['default']
     ServerDetailsCard: typeof import('./src/components/ServerDetailsCard.vue')['default']
     ServerStatusCard: typeof import('./src/components/ServerStatusCard.vue')['default']
