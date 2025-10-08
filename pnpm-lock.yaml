@@ -21,8 +21,8 @@ importers:
         specifier: ^11.1.12
         version: 11.1.12(vue@3.5.22(typescript@5.9.3))
       vuetify:
-        specifier: ^3.10.4
-        version: 3.10.4(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
+        specifier: ^3.10.5
+        version: 3.10.5(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.2
@@ -59,7 +59,7 @@ importers:
         version: 7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)
       vite-plugin-vuetify:
         specifier: ^2.1.2
-        version: 2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.4)
+        version: 2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.5)
       vue-cli-plugin-vuetify:
         specifier: ~2.5.8
         version: 2.5.8(vue@3.5.22(typescript@5.9.3))(webpack@5.101.0)
@@ -680,8 +680,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.8.12:
-    resolution: {integrity: sha512-vAPMQdnyKCBtkmQA6FMCBvU9qFIppS3nzyXnEM+Lo2IAhG4Mpjv9cCxMudhgV3YdNNJv6TNqXy97dfRVL2LmaQ==}
+  baseline-browser-mapping@2.8.13:
+    resolution: {integrity: sha512-7s16KR8io8nIBWQyCYhmFhd+ebIzb9VKTzki+wOJXHTxTnV6+mFGH3+Jwn1zoKaY9/H9T/0BcKCZnzXljPnpSQ==}
     hasBin: true
 
   big.js@5.2.2:
@@ -769,8 +769,8 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  electron-to-chromium@1.5.232:
-    resolution: {integrity: sha512-ENirSe7wf8WzyPCibqKUG1Cg43cPaxH4wRR7AJsX7MCABCHBIOFqvaYODSLKUuZdraxUTHRE/0A2Aq8BYKEHOg==}
+  electron-to-chromium@1.5.233:
+    resolution: {integrity: sha512-iUdTQSf7EFXsDdQsp8MwJz5SVk4APEFqXU/S47OtQ0YLqacSwPXdZ5vRlMX3neb07Cy2vgioNuRnWUXFwuslkg==}
 
   emojis-list@3.0.0:
     resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
@@ -1492,8 +1492,8 @@ packages:
       typescript:
         optional: true
 
-  vuetify@3.10.4:
-    resolution: {integrity: sha512-aatUQ0RM0i6VdkJaFyj3gydecuFmAgACNO3RwWznvjvIvRENQXxMRiv+vlGFoshbw2UG+zOPPMhO12OCPSa2UQ==}
+  vuetify@3.10.5:
+    resolution: {integrity: sha512-3h1onfjcj04B+LJ0cXvGrOOe6C3652JAlyUAuGKgQXwhP9Oe1hAfdM6+svXR5Dt1xC39lQEGqJdacZtwisUEoQ==}
     peerDependencies:
       typescript: '>=4.7'
       vite-plugin-vuetify: '>=2.1.0'
@@ -1928,11 +1928,11 @@ snapshots:
       typescript: 5.9.3
       vue: 3.5.22(typescript@5.9.3)
 
-  '@vuetify/loader-shared@2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.4)':
+  '@vuetify/loader-shared@2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.5)':
     dependencies:
       upath: 2.0.1
       vue: 3.5.22(typescript@5.9.3)
-      vuetify: 3.10.4(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
+      vuetify: 3.10.5(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -2058,7 +2058,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.8.12: {}
+  baseline-browser-mapping@2.8.13: {}
 
   big.js@5.2.2: {}
 
@@ -2075,9 +2075,9 @@ snapshots:
 
   browserslist@4.26.3:
     dependencies:
-      baseline-browser-mapping: 2.8.12
+      baseline-browser-mapping: 2.8.13
       caniuse-lite: 1.0.30001748
-      electron-to-chromium: 1.5.232
+      electron-to-chromium: 1.5.233
       node-releases: 2.0.23
       update-browserslist-db: 1.1.3(browserslist@4.26.3)
 
@@ -2135,7 +2135,7 @@ snapshots:
   detect-libc@1.0.3:
     optional: true
 
-  electron-to-chromium@1.5.232: {}
+  electron-to-chromium@1.5.233: {}
 
   emojis-list@3.0.0: {}
 
@@ -2737,14 +2737,14 @@ snapshots:
 
   varint@6.0.0: {}
 
-  vite-plugin-vuetify@2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.4):
+  vite-plugin-vuetify@2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.5):
     dependencies:
-      '@vuetify/loader-shared': 2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.4)
+      '@vuetify/loader-shared': 2.1.1(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.5)
       debug: 4.4.1
       upath: 2.0.1
       vite: 7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)
       vue: 3.5.22(typescript@5.9.3)
-      vuetify: 3.10.4(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
+      vuetify: 3.10.5(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3))
     transitivePeerDependencies:
       - supports-color
 
@@ -2796,12 +2796,12 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  vuetify@3.10.4(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)):
+  vuetify@3.10.5(typescript@5.9.3)(vite-plugin-vuetify@2.1.2)(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       vue: 3.5.22(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
-      vite-plugin-vuetify: 2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.4)
+      vite-plugin-vuetify: 2.1.2(vite@7.1.9(@types/node@24.7.0)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))(vue@3.5.22(typescript@5.9.3))(vuetify@3.10.5)
 
   watchpack@2.4.4:
     dependencies:
