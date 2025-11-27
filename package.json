@@ -15,7 +15,7 @@
     "@fontsource/roboto": "5.2.9",
     "@mdi/font": "7.4.47",
     "vue": "^3.5.25",
-    "vue-i18n": "^11.2.1",
+    "vue-i18n": "^11.2.2",
     "vuetify": "^3.11.1"
   },
   "devDependencies": {
