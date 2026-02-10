@@ -14,7 +14,7 @@
   "dependencies": {
     "@fontsource/roboto": "5.2.9",
     "@mdi/font": "7.4.47",
-    "vue": "^3.5.27",
+    "vue": "^3.5.28",
     "vue-i18n": "^11.2.8",
     "vuetify": "^3.11.8"
   },
