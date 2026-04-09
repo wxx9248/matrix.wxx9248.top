@@ -18,8 +18,8 @@ importers:
         specifier: ^3.5.32
         version: 3.5.32(typescript@6.0.2)
       vue-i18n:
-        specifier: ^11.3.1
-        version: 11.3.1(vue@3.5.32(typescript@6.0.2))
+        specifier: ^11.3.2
+        version: 11.3.2(vue@3.5.32(typescript@6.0.2))
       vuetify:
         specifier: ^4.0.5
         version: 4.0.5(typescript@6.0.2)(vite-plugin-vuetify@2.1.3)(vue@3.5.32(typescript@6.0.2))
@@ -261,20 +261,20 @@ packages:
   '@fontsource/roboto@5.2.10':
     resolution: {integrity: sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==}
 
-  '@intlify/core-base@11.3.1':
-    resolution: {integrity: sha512-9nG3ItSD5ApZHmTbv2UFqvJSy3m+u6C/orMohukNKoT/Yuwiz8tPtlNw6ylLuPqSP2kP7ZF4Cdqwp6V1m3BQgw==}
+  '@intlify/core-base@11.3.2':
+    resolution: {integrity: sha512-cgsUaV/dyD6aS49UPgerIblrWeXAZHNaDWqm4LujOGC7IafSyhghGXEiSVvuDYaDPiQTP+tSFSTM1HIu7Yp1nA==}
     engines: {node: '>= 16'}
 
-  '@intlify/devtools-types@11.3.1':
-    resolution: {integrity: sha512-qrOknIx294W4YYVYBgldDOeOnv2NlpabW+aYGjMuXMSrY36f7GCAPlEBE2G+qTC5x0oAWDBSY5BmvLlPUx1exg==}
+  '@intlify/devtools-types@11.3.2':
+    resolution: {integrity: sha512-q96G2ZZw0FNoXzejbjIf9dbfgz1xyYBZu6ZT4b5TE/55j8d1O9X5jv0k+U+L3fVe7uebPcqRQFD0ffm30i5mJA==}
     engines: {node: '>= 16'}
 
-  '@intlify/message-compiler@11.3.1':
-    resolution: {integrity: sha512-uIa4YurbphU+4Cl5CoL6nq/c7uQhVNRowEelgboNmXNs+UEcyFLQBESwaUjMvdtYxzA2qh+vGim080KZ84ruDA==}
+  '@intlify/message-compiler@11.3.2':
+    resolution: {integrity: sha512-d/awyHUkNSaGPxBxT/qlUpfRizxHX9dt55CnW03xx5p1KmMyfYHKupCnvzINX+Na8JR8LAR7y32lPKjoeQGmzA==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@11.3.1':
-    resolution: {integrity: sha512-9GWc5PKuRdeWkT7FJN43c/+rD6xpSB3WtizewkfFCK/0XzYqCk4gQBWWcTdfKo8ylEcHwqYsR2Z3HRE3XhEHrQ==}
+  '@intlify/shared@11.3.2':
+    resolution: {integrity: sha512-x66fjdH6i+lNYPae5URSQGTjBL68Av6hi09jvC5Ci96iTkwfqrPhCj46aylQZmgMaG89rOZCIKqS7ApC8ZDVjg==}
     engines: {node: '>= 16'}
 
   '@jridgewell/gen-mapping@0.3.13':
@@ -705,8 +705,8 @@ packages:
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
-  caniuse-lite@1.0.30001786:
-    resolution: {integrity: sha512-4oxTZEvqmLLrERwxO76yfKM7acZo310U+v4kqexI2TL1DkkUEMT8UijrxxcnVdxR3qkVf5awGRX+4Z6aPHVKrA==}
+  caniuse-lite@1.0.30001787:
+    resolution: {integrity: sha512-mNcrMN9KeI68u7muanUpEejSLghOKlVhRqS/Za2IeyGllJ9I9otGpR9g3nsw7n4W378TE/LyIteA0+/FOZm4Kg==}
 
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
@@ -759,8 +759,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  electron-to-chromium@1.5.332:
-    resolution: {integrity: sha512-7OOtytmh/rINMLwaFTbcMVvYXO3AUm029X0LcyfYk0B557RlPkdpTpnH9+htMlfu5dKwOmT0+Zs2Aw+lnn6TeQ==}
+  electron-to-chromium@1.5.334:
+    resolution: {integrity: sha512-mgjZAz7Jyx1SRCwEpy9wefDS7GvNPazLthHg8eQMJ76wBdGQQDW33TCrUTvQ4wzpmOrv2zrFoD3oNufMdyMpog==}
 
   emojis-list@3.0.0:
     resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
@@ -1553,8 +1553,8 @@ packages:
       vuetify-loader:
         optional: true
 
-  vue-i18n@11.3.1:
-    resolution: {integrity: sha512-azq8fhVnCwJAw0iXW7i44h9P+Bj+snNuevBAaJ9bxn0I3YVsRU3deVFPNnTfZ2uxVJefGp83JUmL68ddCPw5Pw==}
+  vue-i18n@11.3.2:
+    resolution: {integrity: sha512-gmFrvM+iuf2AH4ygligw/pC7PRJ63AdRNE68E0GPlQ83Mzfyck6g6cRQC3KzkYXr+ZidR91wq+5YBmAMpkgE1A==}
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
@@ -1739,23 +1739,23 @@ snapshots:
 
   '@fontsource/roboto@5.2.10': {}
 
-  '@intlify/core-base@11.3.1':
+  '@intlify/core-base@11.3.2':
     dependencies:
-      '@intlify/devtools-types': 11.3.1
-      '@intlify/message-compiler': 11.3.1
-      '@intlify/shared': 11.3.1
+      '@intlify/devtools-types': 11.3.2
+      '@intlify/message-compiler': 11.3.2
+      '@intlify/shared': 11.3.2
 
-  '@intlify/devtools-types@11.3.1':
+  '@intlify/devtools-types@11.3.2':
     dependencies:
-      '@intlify/core-base': 11.3.1
-      '@intlify/shared': 11.3.1
+      '@intlify/core-base': 11.3.2
+      '@intlify/shared': 11.3.2
 
-  '@intlify/message-compiler@11.3.1':
+  '@intlify/message-compiler@11.3.2':
     dependencies:
-      '@intlify/shared': 11.3.1
+      '@intlify/shared': 11.3.2
       source-map-js: 1.2.1
 
-  '@intlify/shared@11.3.1': {}
+  '@intlify/shared@11.3.2': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -2173,14 +2173,14 @@ snapshots:
   browserslist@4.28.2:
     dependencies:
       baseline-browser-mapping: 2.10.16
-      caniuse-lite: 1.0.30001786
-      electron-to-chromium: 1.5.332
+      caniuse-lite: 1.0.30001787
+      electron-to-chromium: 1.5.334
       node-releases: 2.0.37
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
   buffer-from@1.1.2: {}
 
-  caniuse-lite@1.0.30001786: {}
+  caniuse-lite@1.0.30001787: {}
 
   chokidar@4.0.3:
     dependencies:
@@ -2222,7 +2222,7 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  electron-to-chromium@1.5.332: {}
+  electron-to-chromium@1.5.334: {}
 
   emojis-list@3.0.0: {}
 
@@ -2931,11 +2931,11 @@ snapshots:
       vue: 3.5.32(typescript@6.0.2)
       webpack: 5.101.0(esbuild@0.27.7)
 
-  vue-i18n@11.3.1(vue@3.5.32(typescript@6.0.2)):
+  vue-i18n@11.3.2(vue@3.5.32(typescript@6.0.2)):
     dependencies:
-      '@intlify/core-base': 11.3.1
-      '@intlify/devtools-types': 11.3.1
-      '@intlify/shared': 11.3.1
+      '@intlify/core-base': 11.3.2
+      '@intlify/devtools-types': 11.3.2
+      '@intlify/shared': 11.3.2
       '@vue/devtools-api': 6.6.4
       vue: 3.5.32(typescript@6.0.2)
 
