@@ -24,7 +24,7 @@
     "@vitejs/plugin-vue": "^6.0.5",
     "@vue/tsconfig": "^0.9.1",
     "npm-run-all2": "^8.0.4",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "sass-embedded": "^1.99.0",
     "typescript": "^6.0.2",
     "unplugin-fonts": "^2.0.0",
