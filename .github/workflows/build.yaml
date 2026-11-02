@@ -41,26 +41,20 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Download artifacts
+      - name: Download artifact
         uses: actions/download-artifact@v8
         with:
-          path: artifacts/
-      - name: Gathering artifacts
-        run: |
-          cd artifacts
-          for name in *
-          do
-              tar -cJvf ../$name.tar.xz -C $name/ .
-          done
-          cd ..
-          rm -rf artifacts
+          name: dist
+          path: dist/
+      - name: Package distributable
+        run: tar -cJf dist.tar.xz -C dist .
       - name: Release
         run: |
           if gh release view latest > /dev/null 2>&1
           then
               gh release delete latest --cleanup-tag --yes
           fi
-          gh release create latest *.tar.xz \
+          gh release create latest dist.tar.xz \
               --target "$GITHUB_SHA" \
               --title "latest" \
               --notes "Automated build of $GITHUB_SHA"
