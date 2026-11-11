@@ -1,5 +1,6 @@
 // Cloudflare Worker that serves the landing page: static assets only, no Worker code.
-// The GitHub Actions deploy job builds dist/ and uploads it with `wrangler deploy`.
+// Workers Builds deploys master with `wrangler deploy`; other branches get a
+// Preview from `wrangler preview`, which is the pull request's status check.
 // tests/unit/routes.test.ts checks this file against dist/.
 {
   "name": "matrix",
@@ -12,6 +13,8 @@
     // Paths under a page route with no file get dist/404.html with status 404.
     "not_found_handling": "404-page"
   },
+  // Required by `wrangler preview`; Previews use the settings above
+  "previews": {},
   // Routes, not a custom domain: matrix.wxx9248.top already exists, proxied, in
   // front of nginx and Synapse, and a custom domain would take the whole host
   // (including /_matrix/* and /_synapse/*). Only the paths listed here reach
