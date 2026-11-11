@@ -1,7 +1,8 @@
 # Approves Dependabot's minor and patch updates and merges them once the
 # required checks pass. Major updates wait for a person. The master ruleset
-# requires an approval of the last push and the build job of deploy.yml; this
-# workflow gives the approval, and runs again after Dependabot rebases.
+# requires an approval, the check job of ci.yml and Cloudflare's preview build
+# (Workers Builds: matrix); this workflow gives the approval, and runs again
+# after Dependabot rebases.
 name: Dependabot Auto-Merge
 
 on:
