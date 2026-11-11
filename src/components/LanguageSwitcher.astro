@@ -1,0 +1,79 @@
+---
+import { type Locale, homeUrl, localeInfo, locales } from "@/i18n/locales";
+import { t } from "@/i18n/t";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<nav aria-label={t(lang, "bar.language")}>
+  <ul class="language-switcher">
+    {locales.map((locale) => {
+      const { htmlLang, label, short } = localeInfo[locale];
+      return (
+        <li>
+          <a
+            href={homeUrl(locale)}
+            hreflang={htmlLang}
+            lang={htmlLang}
+            aria-current={locale === lang ? "page" : null}
+            data-locale={locale}
+          >
+            <span aria-hidden="true">{short}</span>
+            <span class="visually-hidden">{label}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<script>
+  import { localeCookie } from "@/i18n/locales";
+
+  // Remember the choice so the "/" redirect sends the visitor here next time
+  document.addEventListener("click", (event) => {
+    const link =
+      event.target instanceof Element
+        ? event.target.closest<HTMLAnchorElement>("a[data-locale]")
+        : null;
+    const locale = link?.dataset.locale;
+    if (locale) {
+      document.cookie = `${localeCookie.name}=${encodeURIComponent(locale)}; Path=/; Max-Age=${localeCookie.maxAgeSeconds}; SameSite=Lax`;
+    }
+  });
+</script>
+
+<style>
+  .language-switcher {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0 6px;
+    border-radius: var(--radius);
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  a[aria-current="page"] {
+    background: var(--color-bg-sunken);
+    color: var(--color-text-primary);
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      background: var(--color-hover-bg);
+      color: var(--color-text-primary);
+    }
+  }
+</style>

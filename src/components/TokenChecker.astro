@@ -1,0 +1,110 @@
+---
+import type { Locale } from "@/i18n/locales";
+import { t } from "@/i18n/t";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<!-- Shown by the status script when registration needs a token -->
+<form class="token" data-token-checker hidden>
+  <label for="token">{t(lang, "token.label")}</label>
+  <div class="field">
+    <input
+      id="token"
+      name="token"
+      type="text"
+      autocomplete="off"
+      spellcheck="false"
+      placeholder={t(lang, "token.placeholder")}
+    />
+    <button type="submit" class="submit">
+      {t(lang, "token.check")}
+    </button>
+  </div>
+  <p class="result" data-token-result role="status"></p>
+</form>
+
+<style>
+  .token {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+    padding: var(--space-4);
+    border-radius: var(--radius);
+    background: var(--color-bg-sunken);
+  }
+
+  /* display above would otherwise win over the hidden attribute */
+  .token[hidden] {
+    display: none;
+  }
+
+  label {
+    color: var(--color-text-secondary);
+  }
+
+  .field {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  input {
+    flex: 1 1 220px;
+    min-width: 0;
+    min-height: var(--control-min);
+    padding: 0 var(--space-3);
+    border: 1px solid var(--color-border-input);
+    border-radius: var(--radius);
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+  }
+
+  input::placeholder {
+    color: var(--color-text-placeholder);
+  }
+
+  .submit {
+    flex: none;
+    min-height: var(--control-min);
+    padding: 0 var(--space-4);
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--color-action-primary);
+    color: var(--color-text-on-primary);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  @media (hover: hover) {
+    .submit:enabled:hover {
+      background: var(--color-action-primary-hover);
+    }
+  }
+
+  .result:empty {
+    display: none;
+  }
+
+  .tone-ok {
+    color: var(--color-success-text);
+  }
+
+  .tone-bad {
+    color: var(--color-text-error);
+  }
+
+  .tone-muted {
+    color: var(--color-text-muted);
+  }
+</style>

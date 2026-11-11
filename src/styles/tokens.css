@@ -1,0 +1,83 @@
+/*
+ * Design tokens: the only place design values are defined. Colors are the
+ * --color-* semantic tokens from @wxx9248/colors. Each is light-dark(); the
+ * active theme comes from color-scheme (see base.css).
+ */
+@import "@wxx9248/colors/index.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
+@import "@fontsource/jetbrains-mono/latin-700.css";
+@import "./media.css";
+
+:root {
+  --font-mono-latin:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas;
+  --font-mono: var(--font-mono-latin), monospace;
+
+  --text-body: 0.875rem;
+  --text-small: 0.8125rem;
+  --text-value: 0.9375rem;
+  --text-tagline: 1.1875rem;
+  --text-hero: 3.25rem;
+
+  --leading: 1.7;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --radius: 4px;
+  --rule: 1px solid var(--color-border-subtle);
+  --focus-ring: 2px solid var(--color-focus-ring);
+  --focus-offset: 2px;
+
+  --tap-min: 44px;
+  --control-min: 40px;
+  --statusbar-height: calc(var(--tap-min) + env(safe-area-inset-bottom));
+  --page-max: 65rem;
+  --z-statusbar: 10;
+
+  /* Narrow screens first; the wide values follow below */
+  --page-side: var(--space-5);
+  --page-padding: 2.25rem var(--page-side) 2rem;
+  --page-gap: 2rem;
+  --panel-padding: var(--space-6) var(--space-4) var(--space-4);
+  --key-basis: 100%;
+}
+
+@media (--tablet-up) {
+  :root {
+    --text-tagline: 1.5rem;
+    --text-hero: 5rem;
+    --page-side: var(--space-8);
+    --page-padding: 4rem var(--page-side) 3rem;
+    --page-gap: 2.25rem;
+    --panel-padding: 1.75rem var(--space-6) 1.375rem;
+    --key-basis: 12ch;
+  }
+}
+
+/*
+ * The Latin mono font has no CJK glyphs, so each page language names the
+ * system fonts to fall back to, before the generic monospace family.
+ */
+:root:lang(zh-CN) {
+  --font-mono:
+    var(--font-mono-latin), "PingFang SC", "Noto Sans CJK SC",
+    "Microsoft YaHei", monospace;
+}
+
+:root:lang(zh-TW) {
+  --font-mono:
+    var(--font-mono-latin), "PingFang TC", "Noto Sans CJK TC",
+    "Microsoft JhengHei", monospace;
+}
+
+:root:lang(ja) {
+  --font-mono:
+    var(--font-mono-latin), "Hiragino Sans", "Noto Sans CJK JP", "Yu Gothic",
+    Meiryo, monospace;
+}

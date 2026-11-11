@@ -1,0 +1,63 @@
+---
+import "@/styles/tokens.css";
+import "@/styles/base.css";
+import { type Locale, homeUrl, localeInfo, locales } from "@/i18n/locales";
+import { initTheme, themeStorageKey } from "@/scripts/theme";
+import { dictionary } from "@/i18n/t";
+
+interface Props {
+  // Adds the canonical URL and the hreflang links to the other languages
+  alternates: boolean;
+  description: string;
+  lang: Locale;
+  title: string;
+}
+
+const { alternates, description, lang, title } = Astro.props;
+
+const absolute = (path: string): string => new URL(path, Astro.site).href;
+// "js" lets the stylesheet show what only works with scripts, such as copy buttons
+const headScript = `document.documentElement.classList.add("js");(${initTheme.toString()})(${JSON.stringify(themeStorageKey)});`;
+// "<" can't end the script element early if it never appears in the JSON
+const uiStrings = JSON.stringify(dictionary(lang)).replaceAll("<", "\\u003c");
+---
+
+<!doctype html>
+<html lang={localeInfo[lang].htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {alternates && <link rel="canonical" href={absolute(homeUrl(lang))} />}
+    {alternates &&
+      locales.map((locale) => (
+        <link
+          rel="alternate"
+          hreflang={localeInfo[locale].htmlLang}
+          href={absolute(homeUrl(locale))}
+        />
+      ))}
+    {alternates && (
+      <link rel="alternate" hreflang="x-default" href={absolute("/en/")} />
+    )}
+    <script is:inline set:html={headScript} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script
+      is:inline
+      type="application/json"
+      id="ui-strings"
+      set:html={uiStrings}
+    />
+  </body>
+</html>

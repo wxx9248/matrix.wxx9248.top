@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "role": "m.role.admin",
+      "matrix_id": "@wxx9248:wxx9248.top",
+      "email_address": "wxx9248@wxx9248.top"
+    }
+  ],
+  "support_page": "https://matrix.wxx9248.top"
+}

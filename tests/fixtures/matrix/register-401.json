@@ -1,0 +1,5 @@
+{
+  "session": "roSljGcRNHXytmPbHAuCaqnz",
+  "flows": [{ "stages": ["m.login.registration_token", "m.login.dummy"] }],
+  "params": {}
+}

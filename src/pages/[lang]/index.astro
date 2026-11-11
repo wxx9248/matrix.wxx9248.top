@@ -1,0 +1,99 @@
+---
+import { type Locale, isLocale, localeStaticPaths } from "@/i18n/locales";
+import Base from "@/layouts/Base.astro";
+import ConnectPanel from "@/components/ConnectPanel.astro";
+import GetStarted from "@/components/GetStarted.astro";
+import PromptLine from "@/components/PromptLine.astro";
+import StatusBar from "@/components/StatusBar.astro";
+import StatusPanel from "@/components/StatusPanel.astro";
+import { t } from "@/i18n/t";
+
+export const getStaticPaths = localeStaticPaths;
+
+const { lang: param } = Astro.params;
+if (!isLocale(param)) {
+  throw new Error(`Unknown language "${param}"`);
+}
+const lang: Locale = param;
+---
+
+<Base
+  alternates
+  description={t(lang, "meta.description")}
+  lang={lang}
+  title={t(lang, "meta.title")}
+>
+  <PromptLine />
+  <main>
+    <section class="hero">
+      <h1>
+        <span class="bracket">[</span>matrix<span class="bracket">]</span>
+      </h1>
+      <p class="tagline">{t(lang, "hero.tagline")}</p>
+      <p
+        class="intro"
+        set:html={t(lang, "hero.intro", {
+          example: "<code>@you:wxx9248.top</code>",
+          matrix: '<a href="https://matrix.org">Matrix</a>'
+        })}
+      />
+    </section>
+    <ConnectPanel lang={lang} />
+    <StatusPanel lang={lang} />
+    <GetStarted lang={lang} />
+  </main>
+  <StatusBar lang={lang} />
+</Base>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--page-gap);
+    width: 100%;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: var(--page-padding);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  h1 {
+    display: flex;
+    align-items: baseline;
+    font-size: var(--text-hero);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .bracket {
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  /* The block cursor, drawn so it adds no text or space to the heading */
+  h1::after {
+    content: "";
+    display: inline-block;
+    width: 0.5em;
+    height: 0.82em;
+    margin-left: 0.12em;
+    background: var(--color-accent);
+  }
+
+  .tagline {
+    font-size: var(--text-tagline);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .intro {
+    max-width: 64ch;
+    color: var(--color-text-secondary);
+  }
+</style>

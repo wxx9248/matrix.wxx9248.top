@@ -1,0 +1,185 @@
+---
+import type { Locale } from "@/i18n/locales";
+import Panel from "./Panel.astro";
+import TokenChecker from "./TokenChecker.astro";
+import { t } from "@/i18n/t";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+// Every row is rendered here, so the script only sets text, attributes and "hidden"
+const rows = [
+  { dot: true, key: "status.server", name: "server" },
+  { dot: true, key: "status.registration", name: "registration" },
+  { key: "status.spec", name: "spec", versioned: true },
+  { key: "status.signIn", name: "signIn" },
+  { dot: true, key: "status.discovery", name: "discovery" }
+] as const;
+
+const checking = t(lang, "status.checking");
+---
+
+<Panel id="status" title={t(lang, "panel.status")}>
+  <p class="panel-note no-script">{t(lang, "status.noScript")}</p>
+  <div class="live">
+    <div class="rows">
+      {rows.map((row) => (
+        <div
+          class="row"
+          data-row={row.name}
+          data-versioned={"versioned" in row ? "" : null}
+        >
+          <span class="key">{t(lang, row.key)}</span>
+          <span class="value">
+            {"dot" in row && (
+              <span class="dot" data-dot="none" aria-hidden="true" />
+            )}
+            <span data-label>{checking}</span>
+            <a data-link hidden></a>
+            <span class="note" data-note hidden></span>
+          </span>
+        </div>
+      ))}
+      <div class="row" data-row="contact" hidden>
+        <span class="key">{t(lang, "status.contact")}</span>
+        <span class="value">
+          <a data-matrix hidden></a>
+          <span class="note" data-separator hidden>
+            ·
+          </span>
+          <a class="email" data-email hidden>
+            {t(lang, "status.email")}
+          </a>
+        </span>
+      </div>
+    </div>
+    <TokenChecker lang={lang} />
+    <div class="footer">
+      <span class="checked" data-checked></span>
+      <button type="button" class="button" data-refresh disabled>
+        <svg
+          aria-hidden="true"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12a9 9 0 1 1-2.64-6.36"></path>
+          <path d="M21 3v6h-6"></path>
+        </svg>
+        {t(lang, "status.refresh")}
+      </button>
+    </div>
+  </div>
+</Panel>
+
+<script>
+  import { initStatus } from "@/scripts/status";
+
+  initStatus();
+</script>
+
+<style>
+  /* Without scripts there is nothing live to show, only the note saying so */
+  .live {
+    display: none;
+  }
+
+  .no-script {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  :global(html.js) .live {
+    display: block;
+  }
+
+  :global(html.js) .no-script {
+    display: none;
+  }
+
+  /* display on .row would otherwise win over the hidden attribute */
+  .row[hidden] {
+    display: none;
+  }
+
+  /*
+   * Dot, label and note are separate pieces: a note that doesn't fit beside
+   * the label moves to its own line instead of breaking mid-phrase
+   */
+  .value {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--space-2);
+    align-items: baseline;
+  }
+
+  .code {
+    color: var(--color-text-code);
+  }
+
+  .note {
+    color: var(--color-text-muted);
+  }
+
+  .email {
+    color: var(--color-text-secondary);
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /* Sits on the text's baseline, lifted to the middle of a lowercase letter */
+    margin-bottom: 0.2em;
+    background: var(--color-text-muted);
+  }
+
+  .dot[data-dot="ok"] {
+    background: var(--color-success-solid);
+  }
+
+  .dot[data-dot="warn"] {
+    background: var(--color-text-highlight);
+  }
+
+  .dot[data-dot="bad"] {
+    background: var(--color-error-solid);
+  }
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--color-border-default);
+  }
+
+  .checked {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+  }
+
+  .button:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  @media (hover: hover) {
+    .button:disabled:hover {
+      background: transparent;
+    }
+  }
+</style>

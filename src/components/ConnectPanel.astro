@@ -1,0 +1,83 @@
+---
+import type { Locale } from "@/i18n/locales";
+import Panel from "./Panel.astro";
+import { serverConfig } from "@/config/server";
+import { t } from "@/i18n/t";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const rows = [
+  { key: "connect.homeserver", value: serverConfig.serverName },
+  { key: "connect.clientUrl", value: serverConfig.fallbackBaseUrl }
+] as const;
+
+// A URL may wrap only right after its scheme, never in the middle of the host
+const urlPattern = /^(?<head>[a-z]+:\/\/)?(?<tail>.*)$/u;
+function splitScheme(value: string): { head: string; tail: string } {
+  const { head = "", tail = value } = urlPattern.exec(value)?.groups ?? {};
+  return { head, tail };
+}
+---
+
+<Panel id="connect" title={t(lang, "panel.connect")}>
+  <div class="rows">
+    {rows.map(({ key, value }) => {
+      const { head, tail } = splitScheme(value);
+      return (
+        <div class="row">
+          <span class="key">{t(lang, key)}</span>
+          <code class="value">{[head, <wbr />, tail]}</code>
+          <button
+            type="button"
+            class="button copy"
+            data-copy={value}
+            aria-label={t(lang, "connect.copyLabel", { what: t(lang, key) })}
+          >
+            <svg
+              aria-hidden="true"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+              <path d="M5 15V5a2 2 0 0 1 2-2h10"></path>
+            </svg>
+            {t(lang, "connect.copy")}
+          </button>
+        </div>
+      );
+    })}
+  </div>
+  <p class="panel-note">{t(lang, "connect.note")}</p>
+</Panel>
+
+<script>
+  import { bindCopyButtons } from "@/scripts/copy";
+
+  bindCopyButtons();
+</script>
+
+<style>
+  code {
+    font-size: var(--text-value);
+    color: var(--color-text-primary);
+  }
+
+  /* Copying needs JavaScript, so no-script visitors never see the buttons */
+  .copy {
+    display: none;
+  }
+
+  :global(html.js) .copy {
+    display: inline-flex;
+  }
+</style>

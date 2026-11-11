@@ -1,0 +1,35 @@
+// Cloudflare Worker that serves the landing page: static assets only, no Worker code.
+// The GitHub Actions deploy job builds dist/ and uploads it with `wrangler deploy`.
+// tests/unit/routes.test.ts checks this file against dist/.
+{
+  "name": "matrix",
+  // At most the newest date the pinned wrangler's workerd supports.
+  "compatibility_date": "2026-11-11",
+  // There is deliberately no `main`, `assets.run_worker_first` or `cache`:
+  // without Worker code, static asset requests are free and unlimited.
+  "assets": {
+    "directory": "./dist",
+    // Paths under a page route with no file get dist/404.html with status 404.
+    "not_found_handling": "404-page"
+  },
+  // Routes, not a custom domain: matrix.wxx9248.top already exists, proxied, in
+  // front of nginx and Synapse, and a custom domain would take the whole host
+  // (including /_matrix/* and /_synapse/*). Only the paths listed here reach
+  // the Worker; everything else keeps going to nginx. A pattern without * matches
+  // that exact URL only, so "/?x=1" goes to nginx, whose `location = /` redirects
+  // to "/" without the query.
+  // Each built page and asset must be covered, and no Synapse path may be.
+  "routes": [
+    { "pattern": "matrix.wxx9248.top/", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/en*", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/zh-CN*", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/zh-TW*", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/ja*", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/_astro/*", "zone_name": "wxx9248.top" },
+    { "pattern": "matrix.wxx9248.top/favicon*", "zone_name": "wxx9248.top" },
+    {
+      "pattern": "matrix.wxx9248.top/apple-touch-icon*",
+      "zone_name": "wxx9248.top"
+    }
+  ]
+}

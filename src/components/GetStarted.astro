@@ -1,0 +1,151 @@
+---
+import type { Locale } from "@/i18n/locales";
+import Panel from "./Panel.astro";
+import { serverConfig } from "@/config/server";
+import { t } from "@/i18n/t";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+
+const clients = [
+  {
+    href: "https://element.io/download",
+    name: "Element",
+    platforms: "start.platforms.element"
+  },
+  {
+    href: "https://fluffychat.im",
+    name: "FluffyChat",
+    platforms: "start.platforms.fluffychat"
+  },
+  {
+    href: "https://cinny.in",
+    name: "Cinny",
+    platforms: "start.platforms.cinny"
+  }
+] as const;
+
+// The params are fixed markup; nothing here comes from a visitor
+const homeserver = t(lang, "start.homeserver", {
+  server: `<code>${serverConfig.serverName}</code>`
+});
+// A script fills in the contact link and shows the sentence once it knows one
+const askToken = t(lang, "start.askToken", {
+  contact: "<a data-contact-link></a>"
+});
+---
+
+<Panel id="start" title={t(lang, "panel.start")}>
+  <ol class="steps">
+    <li>
+      <span class="number" aria-hidden="true">
+        1
+      </span>
+      <div class="body stack">
+        <p>{t(lang, "start.client")}</p>
+        <ul class="clients">
+          {clients.map(({ href, name, platforms }) => (
+            <li>
+              <a class="client" href={href}>
+                <span class="name">
+                  {name}
+                  <span aria-hidden="true"> ↗</span>
+                </span>
+                <span class="platforms">{t(lang, platforms)}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="more" href="https://matrix.org/ecosystem/clients/">
+          {t(lang, "start.more")}
+        </a>
+      </div>
+    </li>
+    <li>
+      <span class="number" aria-hidden="true">
+        2
+      </span>
+      <p class="body" set:html={homeserver} />
+    </li>
+    <li>
+      <span class="number" aria-hidden="true">
+        3
+      </span>
+      <p class="body">
+        {t(lang, "start.signIn")}
+        <span data-ask-token hidden set:html={askToken} />
+      </p>
+    </li>
+  </ol>
+</Panel>
+
+<style>
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .steps > li {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .number {
+    flex: none;
+    color: var(--color-accent);
+  }
+
+  .body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .clients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .clients > li {
+    display: flex;
+    flex: 1 1 200px;
+  }
+
+  .client {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-3) 14px;
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius);
+    background: var(--color-bg-surface);
+    text-decoration: none;
+  }
+
+  .name {
+    color: var(--color-link);
+    font-weight: 700;
+  }
+
+  .platforms {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+  }
+
+  .more {
+    align-self: flex-start;
+    color: var(--color-text-secondary);
+    font-size: var(--text-small);
+  }
+</style>

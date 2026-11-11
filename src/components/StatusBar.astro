@@ -1,0 +1,143 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import type { Locale } from "@/i18n/locales";
+import ThemeToggle from "./ThemeToggle.astro";
+import { serverConfig } from "@/config/server";
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+---
+
+<footer class="status-bar">
+  <div class="mode">
+    <span class="badge">NORMAL</span>
+    <p class="message" data-message role="status" aria-live="polite"></p>
+    <span class="label">{new URL(serverConfig.fallbackBaseUrl).host}</span>
+  </div>
+  <div class="controls">
+    <span class="state" data-bar-state hidden>
+      <span class="dot" data-dot="none" aria-hidden="true"></span>
+      <span data-bar-text></span>
+    </span>
+    <LanguageSwitcher lang={lang} />
+    <ThemeToggle class="toggle" lang={lang} />
+  </div>
+</footer>
+
+<style>
+  @import "../styles/media.css";
+
+  .status-bar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: var(--z-statusbar);
+    display: flex;
+    gap: var(--space-2);
+    align-items: stretch;
+    justify-content: space-between;
+    min-height: var(--statusbar-height);
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 1px solid var(--color-border-default);
+    background: var(--color-bg-surface);
+    font-size: var(--text-small);
+    white-space: nowrap;
+  }
+
+  .mode {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .badge {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    padding: 0 var(--space-3);
+    background: var(--color-action-primary);
+    color: var(--color-text-on-primary);
+    font-weight: 700;
+  }
+
+  .message,
+  .label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .message {
+    color: var(--color-text-highlight);
+  }
+
+  .label {
+    display: none;
+    color: var(--color-text-secondary);
+  }
+
+  .controls {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+    padding-right: var(--space-2);
+  }
+
+  /* The status script fills in the server's state and shows it */
+  .state {
+    display: none;
+    color: var(--color-text-secondary);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-text-muted);
+  }
+
+  .dot[data-dot="ok"] {
+    background: var(--color-success-solid);
+  }
+
+  .dot[data-dot="bad"] {
+    background: var(--color-error-solid);
+  }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--control-min);
+    min-height: 36px;
+    margin-left: var(--space-1);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    .toggle:hover {
+      background: var(--color-hover-bg);
+    }
+  }
+
+  @media (--tablet-up) {
+    .message:empty + .label {
+      display: block;
+    }
+
+    .state:not([hidden]) {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      margin-right: var(--space-3);
+    }
+  }
+</style>
