@@ -19,8 +19,7 @@
   // front of nginx and Synapse, and a custom domain would take the whole host
   // (including /_matrix/* and /_synapse/*). Only the paths listed here reach
   // the Worker; everything else keeps going to nginx. A pattern without * matches
-  // that exact URL only, so "/?x=1" goes to nginx, whose `location = /` redirects
-  // to "/" without the query.
+  // that exact URL only, so "/?x=1" goes to nginx.
   // Each built page and asset must be covered, and no Synapse path may be.
   "routes": [
     { "pattern": "matrix.wxx9248.top/", "zone_name": "wxx9248.top" },
