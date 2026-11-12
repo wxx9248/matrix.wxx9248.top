@@ -4,7 +4,7 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
 
-export interface LocaleInfo {
+interface LocaleInfo {
   htmlLang: string;
   label: string;
   // The compact label for the switcher on narrow screens

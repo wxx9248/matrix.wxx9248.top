@@ -21,12 +21,12 @@ export type Scenario =
 
 export type TokenAnswer = "valid" | "invalid" | "rate-limited";
 
-export interface MockOptions {
+interface MockOptions {
   // What the token validity endpoint answers; "invalid" when omitted
   token?: TokenAnswer;
 }
 
-export interface MatrixRequest {
+interface MatrixRequest {
   method: string;
   url: string;
 }

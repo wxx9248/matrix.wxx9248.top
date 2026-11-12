@@ -1,4 +1,4 @@
-// Terms follow the Element, FluffyChat and Nheko translations; to be reviewed by wxx9248
+// Terms follow the Element, FluffyChat and Nheko translations
 import type { UiKey } from "./en";
 
 export const zhTW: Record<UiKey, string> = {

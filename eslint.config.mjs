@@ -8,7 +8,7 @@ const maxNestedCallbacks = 3;
 
 export default [
   {
-    ignores: ["dist/", "dist-test/", ".astro/", ".wrangler/", ".superpowers/"]
+    ignores: ["dist/", ".astro/", ".wrangler/", ".superpowers/"]
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

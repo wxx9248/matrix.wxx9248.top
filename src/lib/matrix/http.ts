@@ -13,7 +13,7 @@ export const httpStatus = {
 export const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
-export type HttpResult =
+type HttpResult =
   { kind: "response"; status: number; body: unknown } | { kind: "failed" };
 
 const readBody = async (response: Response): Promise<unknown> => {

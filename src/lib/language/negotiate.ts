@@ -1,6 +1,6 @@
 import { type Locale, defaultLocale, locales } from "@/i18n/locales";
 
-export interface NegotiationInput {
+interface NegotiationInput {
   // The remembered choice, from the language switcher's cookie
   cookie?: string | null;
   // BCP 47 tags in preference order, e.g. navigator.languages

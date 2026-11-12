@@ -7,7 +7,7 @@ type FakeResponse =
 
 export type FakeRoute = FakeResponse | ((init?: RequestInit) => FakeResponse);
 
-export type FakeCall = { url: string; init?: RequestInit };
+type FakeCall = { url: string; init?: RequestInit };
 
 const toResponse = (fake: Exclude<FakeResponse, string>): Response => {
   if ("json" in fake) {
